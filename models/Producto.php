@@ -1,6 +1,6 @@
 <?php
     class Producto extends Conectar{
-       /* TODO: Listar regisros */
+       /* TODO: Listar registros */
        public function get_producto_x_suc_id($suc_id){
         $conectar=parent::Conexion();
         $sql="SP_L_PRODUCTO_01 ?";

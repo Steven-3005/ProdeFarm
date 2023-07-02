@@ -27,24 +27,23 @@
         
        }
        /* TODO: Registro de datos */
-       public function insert_empresa($com_id,$emp_nom,$emp_ruc){
+       public function insert_empresa($emp_id,$emp_nom,$emp_ruc){
         $conectar=parent::Conexion();
         $sql="SP_I_EMPRESA_01 ?,?,?";
         $query=$conectar->prepare($sql);
-        $query->bindValue(1,$com_id);
+        $query->bindValue(1,$emp_id);
         $query->bindValue(2,$emp_nom);
         $query->bindValue(3,$emp_ruc);
         $query->execute();
        }
        /* TODO: Actualizar Datos */
-       public function update_empresa($emp_id,$com_id,$emp_nom,$emp_ruc){
+       public function update_empresa($emp_id,$emp_nom,$emp_ruc){
         $conectar=parent::Conexion();
-        $sql="SP_U_EMPRESA_01 ?,?,?,?";
+        $sql="SP_U_EMPRESA_01 ?,?,?";
         $query=$conectar->prepare($sql);
         $query->bindValue(1,$emp_id);
-        $query->bindValue(2,$com_id);
-        $query->bindValue(3,$emp_nom);
-        $query->bindValue(4,$emp_ruc);
+        $query->bindValue(2,$emp_nom);
+        $query->bindValue(3,$emp_ruc);
         $query->execute();
        }      
     }
