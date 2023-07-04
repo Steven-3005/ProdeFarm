@@ -42,7 +42,7 @@
                                         <div class="position-relative h-100 d-flex flex-column">
                                             <div class="mb-4">
                                                 <a href="index.html" class="d-block">
-                                                    <img src="assets/images/logo-light.png" alt="" height="18">
+                                                    <img src="" alt="" height="18">
                                                 </a>
                                             </div>
                                             <div class="mt-auto">
@@ -58,13 +58,13 @@
                                                     </div>
                                                     <div class="carousel-inner text-center text-white-50 pb-5">
                                                         <div class="carousel-item active">
-                                                            <p class="fs-15 fst-italic">" Great! Clean code, clean design, easy for customization. Thanks very much! "</p>
+                                                            <p class="fs-15 fst-italic">" Tu actitud positiva contagia a los demás. ¡Sigamos construyendo un ambiente de trabajo inspirador! "</p>
                                                         </div>
                                                         <div class="carousel-item">
-                                                            <p class="fs-15 fst-italic">" The theme is really great with an amazing customer support."</p>
+                                                            <p class="fs-15 fst-italic">" Tu dedicación y esfuerzo son la clave para el éxito. ¡Sigue adelante, no te rindas!"</p>
                                                         </div>
                                                         <div class="carousel-item">
-                                                            <p class="fs-15 fst-italic">" Great! Clean code, clean design, easy for customization. Thanks very much! "</p>
+                                                            <p class="fs-15 fst-italic">" Asegúrate de cerrar sesión al finalizar tus actividades en el sistema para garantizar la seguridad de tu cuenta. "</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -86,13 +86,10 @@
                                             <form action="index.html">
 
                                                 <div class="mb-3">
-                                                    <label for="username" class="form-label">Empresa</label>
-                                                    <input type="text" class="form-control" id="emp_id" placeholder="Ingresar usuario">
-                                                </div>
-
-                                                <div class="mb-3">
                                                     <label for="username" class="form-label">Sucursal</label>
-                                                    <input type="text" class="form-control" id="Suc_id" placeholder="Ingresar usuario">
+                                                    <select type="text" class="form-control form-select" id="Suc_id" aria-label = "Seleccionar" >
+                                                        <option selected> Seleccionar </option>
+                                                    </select>
                                                 </div>
 
                                                 <div class="mb-3">
@@ -156,6 +153,7 @@
         </footer>
         <!-- end Footer -->
     </div>
+
     <!-- end auth-page-wrapper -->
 
     <!-- JAVASCRIPT -->
@@ -166,8 +164,15 @@
     <script src="assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
     <script src="assets/js/plugins.js"></script>
 
+    <script src="assets/js/pages/password-addon.init.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     <!-- password-addon init -->
     <script src="assets/js/pages/password-addon.init.js"></script>
+
+    <script type="text/javascript" src="index.js" ></script>
 </body>
 
 </html>
