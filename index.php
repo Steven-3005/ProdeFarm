@@ -86,16 +86,18 @@
                                             <form action="index.html">
 
                                                 <div class="mb-3">
-                                                    <label for="username" class="form-label">Empresa</label>
-                                                    <select type="text" class="form-control form-select" id="Suc_id" aria-label = "Seleccionar" >
+                                                    <label for="emp_id" class="form-label">Empresa</label>
+                                                    <select type="text" class="form-control form-select" id="emp_id" aria-label = "Seleccionar" >
                                                         <option selected> Seleccionar </option>
+
                                                     </select>
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label for="username" class="form-label">Sucursal</label>
-                                                    <select type="text" class="form-control form-select" id="Suc_id" aria-label = "Seleccionar" >
+                                                    <label for="suc_id" class="form-label">Sucursal</label>
+                                                    <select type="text" class="form-control form-select" id="suc_id" aria-label = "Seleccionar" >
                                                         <option selected> Seleccionar </option>
+
                                                     </select>
                                                 </div>
 
@@ -170,11 +172,7 @@
     <script src="assets/libs/feather-icons/feather.min.js"></script>
     <script src="assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
     <script src="assets/js/plugins.js"></script>
-
-    <script src="assets/js/pages/password-addon.init.js"></script>
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     <!-- password-addon init -->
     <script src="assets/js/pages/password-addon.init.js"></script>
