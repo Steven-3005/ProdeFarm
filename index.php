@@ -1,3 +1,13 @@
+<?php
+    require_once("config/conexion.php");
+    if(isset($_POST["enviar"])and$_POST["enviar"]=="si"){
+        require_once("models/Usuario.php");
+        $usuario = new Usuario();
+        $usuario->login();
+    }
+
+?>
+
 <!doctype html>
 <html lang="es" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none">
 
@@ -83,11 +93,11 @@
                                         </div>
 
                                         <div class="mt-4">
-                                            <form action="index.html">
+                                            <form action="" method="post"id="login_form">
 
                                                 <div class="mb-3">
                                                     <label for="emp_id" class="form-label">Empresa</label>
-                                                    <select type="text" class="form-control form-select" id="emp_id" aria-label = "Seleccionar" >
+                                                    <select type="text" class="form-control form-select" name="emp_id" id="emp_id" aria-label = "Seleccionar" >
                                                         <option selected> Seleccionar </option>
 
                                                     </select>
@@ -95,7 +105,7 @@
 
                                                 <div class="mb-3">
                                                     <label for="suc_id" class="form-label">Sucursal</label>
-                                                    <select type="text" class="form-control form-select" id="suc_id" aria-label = "Seleccionar" >
+                                                    <select type="text" class="form-control form-select" name="suc_id" id="suc_id" aria-label = "Seleccionar" >
                                                         <option selected> Seleccionar </option>
 
                                                     </select>
@@ -112,7 +122,7 @@
                                                     </div>
                                                     <label class="form-label" for="password-input">Contraseña</label>
                                                     <div class="position-relative auth-pass-inputgroup mb-3">
-                                                        <input type="password" class="form-control pe-5" placeholder="Ingresar Contraseña" id="password-input">
+                                                        <input type="password" class="form-control pe-5" placeholder="Ingresar Contraseña" name="usu_password-input" id="password-input">
                                                         <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
                                                     </div>
                                                 </div>
@@ -123,6 +133,7 @@
                                                 </div>
 
                                                 <div class="mt-4">
+                                                    <input type="hidden" name="enviar" class="form-control" value="si">
                                                     <button class="btn btn-success w-100" type="submit">Iniciar Sesión</button>
                                                 </div>
 
