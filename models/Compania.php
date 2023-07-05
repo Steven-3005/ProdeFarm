@@ -1,51 +1,46 @@
 <?php
-    class Empresa extends Conectar{
+    class Compania extends Conectar{
        /* TODO: Listar registros */
-       public function get_empresa_x_com_id($com_id){
+       public function get_compania(){
         $conectar=parent::Conexion();
-        $sql="SP_L_EMPRESA_01 ?";
+        $sql="SP_L_COMPANIA_01";
         $query=$conectar->prepare($sql);
-        $query->bindValue(1,$com_id);
         $query->execute();
         return $query->fetchALL(PDO::FETCH_ASSOC);
        }
        /* TODO: Listar registros por ID en especifico */
-       public function get_empresa_x_emp_id($emp_id){
+       public function get_compania_x_com_id($com_id){
         $conectar=parent::Conexion();
-        $sql="SP_L_EMPRESA_02 ?";
+        $sql="SP_L_COMPANIA_02 ?";
         $query=$conectar->prepare($sql);
-        $query->bindValue(1,$emp_id);
+        $query->bindValue(1,$com_id);
         $query->execute();
         return $query->fetchALL(PDO::FETCH_ASSOC);
        } 
        /* TODO: eliminar o cambiar estado a eliminado */
-       public function delete_empresa($emp_id){
+       public function delete_compania($com_id){
         $conectar=parent::Conexion();
-        $sql="SP_D_EMPRESA_01 ?";
+        $sql="SP_D_COMPANIA_01 ?";
         $query=$conectar->prepare($sql);
-        $query->bindValue(1,$emp_id);
+        $query->bindValue(1,$com_id);
         $query->execute();
         
        }
        /* TODO: Registro de datos */
-       public function insert_empresa($com_id,$emp_nom,$emp_ruc){
+       public function insert_compania($suc_id,$com_nom){
         $conectar=parent::Conexion();
-        $sql="SP_I_EMPRESA_01 ?,?,?";
+        $sql="SP_I_COMPANIA_01 ?";
         $query=$conectar->prepare($sql);
-        $query->bindValue(1,$com_id);
-        $query->bindValue(2,$emp_nom);
-        $query->bindValue(3,$emp_ruc);
+        $query->bindValue(1,$com_nom);
         $query->execute();
        }
        /* TODO: Actualizar Datos */
-       public function update_empresa($emp_id,$com_id,$emp_nom,$emp_ruc){
+       public function update_compania($com_id,$com_nom){
         $conectar=parent::Conexion();
-        $sql="SP_U_EMPRESA_01 ?,?,?,?";
+        $sql="SP_U_COMPANIA_01 ?,?";
         $query=$conectar->prepare($sql);
-        $query->bindValue(1,$emp_id);
-        $query->bindValue(2,$com_id);
-        $query->bindValue(3,$emp_nom);
-        $query->bindValue(4,$emp_ruc);
+        $query->bindValue(1,$com_id);
+        $query->bindValue(2,$com_nom);
         $query->execute();
        }      
     }
