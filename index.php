@@ -86,6 +86,13 @@
                                             <form action="index.html">
 
                                                 <div class="mb-3">
+                                                    <label for="username" class="form-label">Empresa</label>
+                                                    <select type="text" class="form-control form-select" id="Suc_id" aria-label = "Seleccionar" >
+                                                        <option selected> Seleccionar </option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="mb-3">
                                                     <label for="username" class="form-label">Sucursal</label>
                                                     <select type="text" class="form-control form-select" id="Suc_id" aria-label = "Seleccionar" >
                                                         <option selected> Seleccionar </option>
