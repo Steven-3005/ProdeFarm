@@ -1,6 +1,6 @@
 
 --Listar todos los registros por Sucursal
-CREATE PROCEDURE SP_L_EMPRESA_01
+ALTER PROCEDURE SP_L_EMPRESA_01
 @COM_ID INT
 AS
 BEGIN
