@@ -49,3 +49,10 @@ $(document).ready(function(){
 
 });
 
+function editar(cat_id){
+    console.log(cat_id);
+}
+
+function eliminar(cat_id){
+
+}

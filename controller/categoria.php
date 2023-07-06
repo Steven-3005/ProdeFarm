@@ -29,7 +29,7 @@ switch($_GET["op"]){
             $data[] = $sub_array;
         }
 
-        $result = array(
+        $results = array(
             "sEcho"=>1,
             "iTotalRecords"=>count($data),
             "iTotalDisplayRecords"=>count($data),
