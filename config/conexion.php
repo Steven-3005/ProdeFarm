@@ -5,7 +5,7 @@
 
         protected function Conexion(){
             try{
-                $conectar = $this->dbh=new PDO("sqlsrv:Server=JRGM\SQLEXPRESS;Database=CompraVenta","sa","123456");
+                $conectar = $this->dbh=new PDO("sqlsrv:Server=DESKTOP-NGMU9OU\SQLEXPRESS;Database=CompraVenta","sa","steven3005");
                 return $conectar;
             }catch (Exception $e){
                 print "Error Conexion BD". $e->getMessage() ."<br/>";
@@ -14,7 +14,7 @@
         }
 
         public static function ruta(){
-            return "http://localhost:80/Proyecto__Tesis/ProdeFarm/";
+            return "http://localhost:80/ProdeFarm/";
         }
     }
 ?>

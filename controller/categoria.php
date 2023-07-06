@@ -16,16 +16,19 @@ switch($_GET["op"]){
         break;
 
         /* TODO: LISTADO DE REGISTROS */
-    case "listar";
+    /* TODO: Listado de registros formato JSON para Datatable JS */
+    case "listar":
         $datos=$categoria->get_categoria_x_suc_id($_POST["suc_id"]);
         $data=Array();
         foreach($datos as $row){
             $sub_array = array();
-            $sub_array = $row["cat_nom"];
-            $sub_array = "Editar";
-            $sub_array = "Eliminar";
+            $sub_array[] = $row["CAT_NOM"];
+            $sub_array[] = $row["FECH_CREA"];
+            $sub_array[] = '<button type="button" onClick="editar('.$row["CAT_ID"].')" id="'.$row["CAT_ID"].'" class="btn btn-warning btn-icon waves-effect waves-light"><i class="ri-edit-2-line"></i></button>';
+            $sub_array[] = '<button type="button" onClick="eliminar('.$row["CAT_ID"].')" id="'.$row["CAT_ID"].'" class="btn btn-danger btn-icon waves-effect waves-light"><i class="ri-delete-bin-5-line"></i></button>';
             $data[] = $sub_array;
         }
+
         $result = array(
             "sEcho"=>1,
             "iTotalRecords"=>count($data),
