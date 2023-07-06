@@ -112,17 +112,17 @@
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label for="username" class="form-label">Usuario</label>
-                                                    <input type="text" class="form-control" id="username" placeholder="Ingresar usuario">
+                                                    <label for="usu_correo" class="form-label">Usuario</label>
+                                                    <input type="text" class="form-control" name="usu_correo" id="usu_correo" placeholder="Ingresar usuario">
                                                 </div>
 
                                                 <div class="mb-3">
                                                     <div class="float-end">
                                                         <a href="auth-pass-reset-cover.html" class="text-muted">Restablecer Contraseña</a>
                                                     </div>
-                                                    <label class="form-label" for="password-input">Contraseña</label>
+                                                    <label class="form-label" for="usu_pass">Contraseña</label>
                                                     <div class="position-relative auth-pass-inputgroup mb-3">
-                                                        <input type="password" class="form-control pe-5" placeholder="Ingresar Contraseña" name="password-input" id="password-input">
+                                                        <input type="password" class="form-control pe-5" placeholder="Ingresar Contraseña" name="usu_pass" id="usu_pass">
                                                         <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
                                                     </div>
                                                 </div>
