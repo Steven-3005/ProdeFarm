@@ -54,5 +54,16 @@ function editar(cat_id){
 }
 
 function eliminar(cat_id){
-
+    swal.fire({
+        title:"Eliminar",
+        text:"¿Desea Eliminar el Registro?",
+        icon: "error",
+        confirmButtonText : "SI",
+        showCancelButton : true,
+        cancelButtonText: "NO",
+    }).then((result)=>{
+        if (result.value){
+                //Eliminar
+        }
+    });
 }

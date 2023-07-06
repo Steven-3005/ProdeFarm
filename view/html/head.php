@@ -13,6 +13,9 @@
     
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
 
+     <!-- Sweet Alert css-->
+     <link href="../../assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+
     <!-- Layout config Js -->
     <script src="../../assets/js/layout.js"></script>
     <!-- Bootstrap Css -->
