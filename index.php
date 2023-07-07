@@ -188,7 +188,7 @@
     <!-- password-addon init -->
     <script src="assets/js/pages/password-addon.init.js"></script>
 
-    <script type="text/javascript" src="index.js" ></script>
+    <script type="text/javascript" src="login.js" ></script>
 </body>
 
 </html>
