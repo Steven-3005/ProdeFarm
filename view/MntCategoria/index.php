@@ -1,28 +1,30 @@
 <?php
     require_once("../../config/conexion.php");
+    if(isset($_SESSION["USU_ID"])){
 ?>
+
 <!doctype html>
 <html lang="es" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none">
-
 <head>
     <title>ProdeFarm | Categoria</title>
-    <?php require_once("../html/head.php");?>
+    <?php require_once("../html/head.php"); ?>
 </head>
+
 <body>
-    <!-- Begin page -->
+
     <div id="layout-wrapper">
 
-    <?php require_once("../html/header.php"); ?>
+        <?php require_once("../html/header.php"); ?>
 
         <?php require_once("../html/menu.php"); ?>
+
         <div class="main-content">
             <div class="page-content">
                 <div class="container-fluid">
-                    <!-- start page title -->
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">Mantenimiento</h4>
+                                <h4 class="mb-sm-0">Mantenimiento Categoria</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
@@ -31,12 +33,9 @@
                                     </ol>
                                 </div>
 
-                    
-                        
-                    
-
                             </div>
                         </div>
+
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
@@ -46,7 +45,6 @@
                                     <table id="table_data" class="table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">
                                         <thead>
                                             <tr>
-                                   
                                                 <th>Nombre</th>
                                                 <th>FechaCreacion</th>
                                                 <th></th>
@@ -59,26 +57,26 @@
                                     </table>
                                 </div>
                             </div>
-                        </div><!--end col-->
+                        </div>
+
                     </div>
-                    <!-- end page title -->
-
                 </div>
-                <!-- container-fluid -->
             </div>
-            <!-- End Page-content -->
 
-            <?php require_once("../html/footer.php");?>
+            <?php require_once("../html/footer.php"); ?>
         </div>
-        <!-- end main content-->
 
     </div>
-    <!-- END layout-wrapper -->
 
+    <?php require_once("mantenimiento.php"); ?>
 
-
-    <?php require_once("../html/js.php");?>
+    <?php require_once("../html/js.php"); ?>
     <script type="text/javascript" src="mntcategoria.js"></script>
 </body>
 
 </html>
+<?php
+    }else{
+        header("Location:".Conectar::ruta()."view/404/");
+    }
+?>
