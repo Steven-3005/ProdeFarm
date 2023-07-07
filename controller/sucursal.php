@@ -38,7 +38,7 @@
 
         /* TODO:Mostrar informacion de registro segun su ID */
         case "mostrar":
-            $datos=$sucursal->get_sucursal_x_emp_id($_POST["suc_id"]);
+            $datos=$sucursal->get_sucursal_x_suc_id($_POST["suc_id"]);
             if (is_array($datos)==true and count($datos)>0){
                 foreach($datos as $row){
                     $output["SUC_ID"] = $row["SUC_ID"];

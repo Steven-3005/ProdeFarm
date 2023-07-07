@@ -43,7 +43,7 @@ switch($_GET["op"]){
             $sub_array[] = $row["USU_CORREO"];
             $sub_array[] = $row["USU_NOM"];
             $sub_array[] = $row["USU_APE"];
-            $sub_array[] = $row["USU_CII"];
+            $sub_array[] = $row["USU_CI"];
             $sub_array[] = $row["USU_TELF"];
             $sub_array[] = $row["USU_PASS"];
             $sub_array[] = $row["ROL_NOM"];
