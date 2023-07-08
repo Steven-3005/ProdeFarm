@@ -15,7 +15,6 @@ switch($_GET["op"]){
                 $_POST["prod_nom"],
                 $_POST["prod_descrip"],
                 $_POST["und_id"],
-                $_POST["mon_id"],
                 $_POST["prod_pcompra"],
                 $_POST["prod_pventa"],
                 $_POST["prod_stock"],
@@ -30,7 +29,6 @@ switch($_GET["op"]){
                 $_POST["prod_nom"],
                 $_POST["prod_descrip"],
                 $_POST["und_id"],
-                $_POST["mon_id"],
                 $_POST["prod_pcompra"],
                 $_POST["prod_pventa"],
                 $_POST["prod_stock"],
@@ -49,7 +47,6 @@ switch($_GET["op"]){
             $sub_array[] = $row["CAT_NOM"];
             $sub_array[] = $row["PROD_NOM"];
             $sub_array[] = $row["UND_NOM"];
-            $sub_array[] = $row["MON_NOM"];
             $sub_array[] = $row["PROD_PCOMPRA"];
             $sub_array[] = $row["PROD_PVENTA"];
             $sub_array[] = $row["PROD_STOCK"];
@@ -76,7 +73,6 @@ switch($_GET["op"]){
                 $output["CAT_ID"] = $row["CAT_ID"];
                 $output["UND_ID"] = $row["UND_ID"];
                 $output["UND_NOM"] = $row["UND_NOM"];
-                $output["MON_ID"] = $row["MON_ID"];
                 $output["PROD_NOM"] = $row["PROD_NOM"];
                 $output["PROD_DESCRIP"] = $row["PROD_DESCRIP"];
                 $output["PROD_PCOMPRA"] = $row["PROD_PCOMPRA"];

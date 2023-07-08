@@ -98,7 +98,6 @@ function editar(prod_id){
         $('#prod_stock').val(data.PROD_STOCK);
         $('#cat_id').val(data.CAT_ID).trigger('change');
         $('#und_id').val(data.UND_ID).trigger('change');
-        $('#mon_id').val(data.MON_ID).trigger('change');
     });
     $('#lbltitulo').html('Editar Registro');
     $('#modalmantenimiento').modal('show')
@@ -138,7 +137,6 @@ $(document).on("click","#btnnuevo",function(){
     $('#prod_stock').val('');
     $('#cat_id').val('').trigger('change');
     $('#und_id').val('').trigger('change');
-    $('#mon_id').val('').trigger('change');
     $('#lbltitulo').html('Nuevo Registro');
     $("#mantenimiento_form")[0].reset();
     $('#modalmantenimiento').modal('show');
