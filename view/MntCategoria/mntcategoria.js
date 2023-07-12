@@ -44,7 +44,7 @@ $(document).ready(function(){
         "ajax":{
             url:"../../controller/categoria.php?op=listar",
             type:"post",
-            data:{suc_id:suc_id}
+            data:{suc_id:1}
         },
         "bDestroy": true,
         "responsive": true,
