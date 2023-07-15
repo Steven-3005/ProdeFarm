@@ -89,5 +89,17 @@ switch($_GET["op"]){
         $producto->delete_producto($_POST["prod_id"]);
         break;
 
+        case "combo";
+            $datos=$producto->get_producto_x_cat_id($_POST["cat_id"]);
+            if(is_array($datos)==true and count($datos)>0){
+                $html="";
+                $html.="<option selected>Seleccionar</option>";
+                foreach($datos as $row){
+                    $html.= "<option value='".$row["PROD_ID"]."'>".$row["PROD_NOM"]."</option>";
+                }
+                echo $html;
+            }
+            break;
+
 }
 ?>

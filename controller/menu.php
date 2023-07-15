@@ -30,13 +30,13 @@
             echo json_encode($results);
             break;
 
-        case "habilitar":
-            $menu->update_menu_habilitar($_POST["mend_id"]);
-            break;
-
-        case "deshabilitar":
-            $menu->update_menu_deshabilitar($_POST["mend_id"]);
-            break;
+            case "habilitar":
+                $menu->update_menu_habilitar($_POST["mend_id"]);
+                break;
+    
+            case "deshabilitar":
+                $menu->update_menu_deshabilitar($_POST["mend_id"]);
+                break;
 
     }
 ?>

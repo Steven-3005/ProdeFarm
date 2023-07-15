@@ -567,7 +567,7 @@
                             <div class="form-check sidebar-setting card-radio">
                                 <input class="form-check-input" type="radio" name="data-sidebar-image" id="sidebarimg-01" value="img-1">
                                 <label class="form-check-label p-0 avatar-sm h-auto" for="sidebarimg-01">
-                                    <img src="assets/images/sidebar/img-1.jpg" alt="" class="avatar-md w-auto object-cover">
+                                    <img src="../../assets/images/sidebar/img-1.jpg" alt="" class="avatar-md w-auto object-cover">
                                 </label>
                             </div>	
 
@@ -629,7 +629,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
 
-<script src="assets/js/pages/datatables.init.js"></script>
+<script src="../../assets/js/pages/datatables.init.js"></script>
 
 <!-- Sweet Alerts js -->
 <script src="../../assets/libs/sweetalert2/sweetalert2.min.js"></script>

@@ -46,5 +46,16 @@
         $query->bindValue(3,$rol_nom);
         $query->execute();
        }      
+
+       public function validar_acceso_rol($usu_id,$mend_identi){
+        $conectar=parent::Conexion();
+        $sql="SP_L_MENU_03 ?,?";
+        $query=$conectar->prepare($sql);
+        $query->bindValue(1,$usu_id);
+        $query->bindValue(2,$mend_identi);
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
     }
 ?>

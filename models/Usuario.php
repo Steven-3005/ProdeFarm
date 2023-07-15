@@ -96,6 +96,7 @@
                     $_SESSION["COM_ID"]=$resultado["COM_ID"];
                     $_SESSION["EMP_ID"]=$resultado["EMP_ID"];
                     $_SESSION["ROL_ID"]=$resultado["ROL_ID"];
+                    $_SESSION["ROL_NOM"]=$resultado["ROL_NOM"];
 
                     header("Location:".Conectar::ruta()."view/home/");
                 }else{

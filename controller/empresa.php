@@ -57,7 +57,7 @@ switch($_GET["op"]){
         break;
 
         /* TODO: Listar Combo */
-    case "combo";
+        case "combo";
         $datos=$empresa->get_empresa_x_com_id($_POST["com_id"]);
         if(is_array($datos)==true and count($datos)>0){
             $html="";

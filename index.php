@@ -21,6 +21,7 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
 
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <!-- Layout config Js -->
     <script src="assets/js/layout.js"></script>
     <!-- Bootstrap Css -->
@@ -83,7 +84,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- end col -->
 
                                 <div class="col-lg-6">
                                     <div class="p-lg-5 p-4">
@@ -142,20 +142,13 @@
 
                                     </div>
                                 </div>
-                                <!-- end col -->
                             </div>
-                            <!-- end row -->
                         </div>
-                        <!-- end card -->
                     </div>
-                    <!-- end col -->
 
                 </div>
-                <!-- end row -->
             </div>
-            <!-- end container -->
         </div>
-        <!-- end auth page content -->
 
         <!-- footer -->
         <footer class="footer">
@@ -171,11 +164,7 @@
                 </div>
             </div>
         </footer>
-        <!-- end Footer -->
     </div>
-
-    <!-- end auth-page-wrapper -->
-
     <!-- JAVASCRIPT -->
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/libs/simplebar/simplebar.min.js"></script>
@@ -187,6 +176,9 @@
 
     <!-- password-addon init -->
     <script src="assets/js/pages/password-addon.init.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     <script type="text/javascript" src="index.js" ></script>
 </body>
