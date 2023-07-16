@@ -74,7 +74,7 @@
             return $query->fetchAll(PDO::FETCH_ASSOC);
         }
 
-       /* public function get_compra_listado($suc_id){
+        public function get_compra_listado($suc_id){
             $conectar=parent::Conexion();
             $sql="SP_L_COMPRA_03 ?";
             $query=$conectar->prepare($sql);
@@ -82,6 +82,8 @@
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
         }
-*/
+
+        
+
     }
 ?>

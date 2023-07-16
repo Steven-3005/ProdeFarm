@@ -126,7 +126,6 @@
                 $sub_array[] = $row["PROV_RUC"];
                 $sub_array[] = $row["PROV_NOM"];
                 $sub_array[] = $row["PAG_NOM"];
-                $sub_array[] = $row["MON_NOM"];
                 $sub_array[] = $row["COMPR_SUBTOTAL"];
                 $sub_array[] = $row["COMPR_IVA"];
                 $sub_array[] = $row["COMPR_TOTAL"];
