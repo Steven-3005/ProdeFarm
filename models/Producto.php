@@ -50,11 +50,11 @@
             $query->bindValue(3,$prod_nom);
             $query->bindValue(4,$prod_descrip);
             $query->bindValue(5,$und_id);
-            $query->bindValue(7,$prod_pcompra);
-            $query->bindValue(8,$prod_pventa);
-            $query->bindValue(9,$prod_stock);
-            $query->bindValue(10,$prod_fechaven);
-            $query->bindValue(11,$prod_img);
+            $query->bindValue(6,$prod_pcompra);
+            $query->bindValue(7,$prod_pventa);
+            $query->bindValue(8,$prod_stock);
+            $query->bindValue(9,$prod_fechaven);
+            $query->bindValue(10,$prod_img);
             $query->execute();
         }
 
@@ -71,11 +71,11 @@
             $query->bindValue(4,$prod_nom);
             $query->bindValue(5,$prod_descrip);
             $query->bindValue(6,$und_id);
-            $query->bindValue(8,$prod_pcompra);
-            $query->bindValue(9,$prod_pventa);
-            $query->bindValue(10,$prod_stock);
-            $query->bindValue(11,$prod_fechaven);
-            $query->bindValue(12,$prod_img);
+            $query->bindValue(7,$prod_pcompra);
+            $query->bindValue(8,$prod_pventa);
+            $query->bindValue(9,$prod_stock);
+            $query->bindValue(10,$prod_fechaven);
+            $query->bindValue(11,$prod_img);
             $query->execute();
         }
     }

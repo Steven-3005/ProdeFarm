@@ -40,10 +40,6 @@ $(document).ready(function(){
         $("#und_id").html(data);
     });
 
-    $.post("../../controller/moneda.php?op=combo",{suc_id:suc_id},function(data){
-        $("#mon_id").html(data);
-    });
-
     $('#table_data').DataTable({
         "aProcessing": true,
         "aServerSide": true,
@@ -103,8 +99,6 @@ function editar(prod_id){
         $('#prod_stock').val(data.PROD_STOCK);
         $('#cat_id').val(data.CAT_ID).trigger('change');
         $('#und_id').val(data.UND_ID).trigger('change');
-        $('#mon_id').val(data.MON_ID).trigger('change');
-        $('#pre_imagen').html(data.PROD_IMG);
     });
     $('#lbltitulo').html('Editar Registro');
     $('#modalmantenimiento').modal('show')
@@ -144,30 +138,9 @@ $(document).on("click","#btnnuevo",function(){
     $('#prod_stock').val('');
     $('#cat_id').val('').trigger('change');
     $('#und_id').val('').trigger('change');
-    $('#mon_id').val('').trigger('change');
     $('#lbltitulo').html('Nuevo Registro');
-    $('#pre_imagen').html('<img src="../../assets/producto/no_imagen.png" class="rounded-circle avatar-xl img-thumbnail user-profile-image" alt="user-profile-image"></img><input type="hidden" name="hidden_producto_imagen" value="" />');
     $("#mantenimiento_form")[0].reset();
     $('#modalmantenimiento').modal('show');
-});
-
-function filePreview(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            $('#pre_imagen').html('<img src='+e.target.result+' class="rounded-circle avatar-xl img-thumbnail user-profile-image" alt="user-profile-image"></img>');
-        }
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-
-$(document).on('change','#prod_img',function(){
-    filePreview(this);
-});
-
-$(document).on("click","#btnremovephoto",function(){
-    $('#prod_img').val('');
-    $('#pre_imagen').html('<img src="../../assets/producto/no_imagen.png" class="rounded-circle avatar-xl img-thumbnail user-profile-image" alt="user-profile-image"></img><input type="hidden" name="hidden_producto_imagen" value="" />');
 });
 
 init();
