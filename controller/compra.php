@@ -131,7 +131,7 @@
                 $sub_array[] = $row["COMPR_TOTAL"];
                 $sub_array[] = $row["USU_NOM"]." ".$row["USU_APE"];
                 $sub_array[] = '<a href="../ViewCompra/?c='.$row["COMPR_ID"].'" target="_blank" class="btn btn-primary btn-icon waves-effect waves-light"><i class="ri-printer-line"></i></a>';
-                $sub_array[] = '<button type="button" onClick="ver('.$row["COMPR_ID"].')" id="'.$row["COMPR_ID"].'" class="btn btn-success btn-icon waves-effect waves-light"><i class="ri-settings-2-line"></i></button>';
+                $sub_array[] = '<button type="button" onClick="ver('.$row["COMPR_ID"].')" id="'.$row["COMPR_ID"].'" class="btn btn-success btn-icon waves-effect waves-light"><i class="ri-todo-line"></i></button>';
                 $data[] = $sub_array;
             }
 

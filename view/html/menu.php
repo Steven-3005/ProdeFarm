@@ -71,7 +71,7 @@
                     }
                 ?>
 
-                <li class="menu-title"><span data-key="t-menu">Compra</span></li>
+                <li class="menu-title"><span data-key="t-menu">Modulo de Compra</span></li>
 
                 <?php
                     foreach ($datos as $row) {
@@ -88,7 +88,7 @@
                 ?>
 
 
-                <li class="menu-title"><span data-key="t-menu">Venta</span></li>
+                <li class="menu-title"><span data-key="t-menu">Modulo de Facturación</span></li>
 
                 <?php
                     foreach ($datos as $row) {
