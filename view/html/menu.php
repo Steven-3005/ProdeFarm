@@ -63,7 +63,7 @@
                             ?>
                                 <li class="nav-item">
                                     <a class="nav-link menu-link" href="<?php echo $row["MEN_RUTA"];?>">
-                                        <i class="ri-honour-line"></i> <span data-key="t-widgets"><?php echo $row["MEN_NOM"];?></span>
+                                        <i class="ri-list-settings-fill"></i> <span data-key="t-widgets"><?php echo $row["MEN_NOM"];?></span>
                                     </a>
                                 </li>
                             <?php
@@ -79,7 +79,7 @@
                             ?>
                                 <li class="nav-item">
                                     <a class="nav-link menu-link" href="<?php echo $row["MEN_RUTA"];?>">
-                                        <i class="ri-honour-line"></i> <span data-key="t-widgets"><?php echo $row["MEN_NOM"];?></span>
+                                        <i class="bx bx-first-aid"></i> <span data-key="t-widgets"><?php echo $row["MEN_NOM"];?></span>
                                     </a>
                                 </li>
                             <?php
@@ -96,7 +96,7 @@
                             ?>
                                 <li class="nav-item">
                                     <a class="nav-link menu-link" href="<?php echo $row["MEN_RUTA"];?>">
-                                        <i class="ri-honour-line"></i> <span data-key="t-widgets"><?php echo $row["MEN_NOM"];?></span>
+                                        <i class="bx bx-first-aid"></i> <span data-key="t-widgets"><?php echo $row["MEN_NOM"];?></span>
                                     </a>
                                 </li>
                             <?php
