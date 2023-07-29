@@ -53,6 +53,7 @@
                 $sub_array[] = $row["FECH_CREA"];
                 $sub_array[] = '<button type="button" onClick="editar('.$row["PROD_ID"].')" id="'.$row["PROD_ID"].'" class="btn btn-warning btn-icon waves-effect waves-light"><i class="ri-edit-2-line"></i></button>';
                 $sub_array[] = '<button type="button" onClick="eliminar('.$row["PROD_ID"].')" id="'.$row["PROD_ID"].'" class="btn btn-danger btn-icon waves-effect waves-light"><i class="ri-delete-bin-5-line"></i></button>';
+                $sub_array[] = '<button type="button" onClick="ver('.$row["PROD_ID"].')" id="'.$row["PROD_ID"].'" class="btn btn-success btn-icon waves-effect waves-light"><i class="ri-settings-2-line"></i></button>';
                 $data[] = $sub_array;
             }
 
@@ -79,6 +80,11 @@
                     $output["PROD_PVENTA"] = $row["PROD_PVENTA"];
                     $output["PROD_STOCK"] = $row["PROD_STOCK"];
                     $output["FECH_CREA"] = $row["FECH_CREA"];
+                    if($row["PROD_IMG"] != ''){
+                        $output["PROD_IMG"] = '<img src="../../assets/producto/'.$row["PROD_IMG"].'" class="rounded-circle avatar-xl img-thumbnail user-profile-image" alt="user-profile-image"></img><input type="hidden" name="hidden_producto_imagen" value="'.$row["PROD_IMG"].'" />';
+                    }else{
+                        $output["PROD_IMG"] = '<img src="../../assets/producto/no_imagen.png" class="rounded-circle avatar-xl img-thumbnail user-profile-image" alt="user-profile-image"></img><input type="hidden" name="hidden_producto_imagen" value="" />';
+                    }
                 }
                 echo json_encode($output);
             }

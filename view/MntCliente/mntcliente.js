@@ -20,7 +20,7 @@ function guardaryeditar(e){
             console.log(data);
             $('#table_data').DataTable().ajax.reload();
             $('#modalmantenimiento').modal('hide');
-
+            /* TODO: Mensaje de Sweet Alert */
             swal.fire({
                 title:'Categoria',
                 text: 'Registro Confirmado',

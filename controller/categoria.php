@@ -50,12 +50,12 @@
             break;
 
         /* TODO: Cambiar Estado a 0 del Registro */
-        case "eliminar";
+        case "eliminar":
             $categoria->delete_categoria($_POST["cat_id"]);
             break;
 
         /* TODO: Listar Combo */
-        case "combo";
+        case "combo":
             $datos=$categoria->get_categoria_x_suc_id($_POST["suc_id"]);
             if(is_array($datos)==true and count($datos)>0){
                 $html="";

@@ -29,7 +29,7 @@
         
        }
        /* TODO: Registro de datos */
-       public function insert_proveedor($emp_id,$prov_nom,$prov_ruc,$prov_telf,$prov_dirrec,$prov_correo){
+       public function insert_proveedor($emp_id,$prov_nom,$prov_ruc,$prov_telf,$prov_direc,$prov_correo){
         $conectar=parent::Conexion();
         $sql="SP_I_PROVEEDOR_01 ?,?,?,?,?,?";
         $query=$conectar->prepare($sql);
@@ -37,12 +37,12 @@
         $query->bindValue(2,$prov_nom);
         $query->bindValue(3,$prov_ruc);
         $query->bindValue(4,$prov_telf);
-        $query->bindValue(5,$prov_dirrec);
+        $query->bindValue(5,$prov_direc);
         $query->bindValue(6,$prov_correo);
         $query->execute();
        }
        /* TODO: Actualizar Datos */
-       public function update_proveedor($prov_id,$emp_id,$prov_nom,$prov_ruc,$prov_telf,$prov_dirrec,$prov_correo){
+       public function update_proveedor($prov_id,$emp_id,$prov_nom,$prov_ruc,$prov_telf,$prov_direc,$prov_correo){
         $conectar=parent::Conexion();
         $sql="SP_U_PROVEEDOR_01 ?,?,?,?,?,?,?";
         $query=$conectar->prepare($sql);
@@ -51,7 +51,7 @@
         $query->bindValue(3,$prov_nom);
         $query->bindValue(4,$prov_ruc);
         $query->bindValue(5,$prov_telf);
-        $query->bindValue(6,$prov_direcc);
+        $query->bindValue(6,$prov_direc);
         $query->bindValue(7,$prov_correo);
         $query->execute();
        }      

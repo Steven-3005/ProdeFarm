@@ -6,7 +6,7 @@
 <!doctype html>
 <html lang="es" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none">
 <head>
-    <title>ProddeFarm | Venta</title>
+    <title>ProdeFarm | Venta</title>
     <?php require_once("../html/head.php"); ?>
 </head>
 

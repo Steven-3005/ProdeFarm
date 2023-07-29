@@ -7,27 +7,26 @@ $proveedor=new Proveedor();
 
 switch($_GET["op"]){
     /* TODO: GUARDAR Y EDITAR */
-    case "listar":
-        $datos=$proveedor->get_proveedor_x_emp_id($_POST["emp_id"]);
-        $data=Array();
-        foreach($datos as $row){
-            $sub_array = array();
-            $sub_array[] = $row["PROV_NOM"];
-            $sub_array[] = $row["PROV_RUC"];
-            $sub_array[] = $row["PROV_TELF"];
-            $sub_array[] = $row["PROV_DIRECC"];
-            $sub_array[] = $row["FECH_CREA"];
-            $sub_array[] = '<button type="button" onClick="editar('.$row["PROV_ID"].')" id="'.$row["PROV_ID"].'" class="btn btn-warning btn-icon waves-effect waves-light"><i class="ri-edit-2-line"></i></button>';
-            $sub_array[] = '<button type="button" onClick="eliminar('.$row["PROV_ID"].')" id="'.$row["PROV_ID"].'" class="btn btn-danger btn-icon waves-effect waves-light"><i class="ri-delete-bin-5-line"></i></button>';
-            $data[] = $sub_array;
+    case "guardaryeditar":
+        if(empty($_POST["prov_id"])){
+            $proveedor->insert_proveedor(
+                $_POST["emp_id"],
+                $_POST["prov_nom"],
+                $_POST["prov_ruc"],
+                $_POST["prov_telf"],
+                $_POST["prov_direcc"],
+                $_POST["prov_correo"]);
+        }else{
+            $proveedor->update_proveedor(
+                $_POST["prov_id"],
+                $_POST["emp_id"],
+                $_POST["prov_nom"],
+                $_POST["prov_ruc"],
+                $_POST["prov_telf"],
+                $_POST["prov_direcc"],
+                $_POST["prov_correo"]
+        );
         }
-
-        $results = array(
-            "sEcho"=>1,
-            "iTotalRecords"=>count($data),
-            "iTotalDisplayRecords"=>count($data),
-            "aaData"=>$data);
-        echo json_encode($results);
         break;
 
         /* TODO: LISTADO DE REGISTROS */
@@ -40,6 +39,7 @@ switch($_GET["op"]){
                 $sub_array[] = $row["PROV_RUC"];
                 $sub_array[] = $row["PROV_TELF"];
                 $sub_array[] = $row["PROV_DIRECC"];
+                $sub_array[] = $row["PROV_CORREO"];
                 $sub_array[] = $row["FECH_CREA"];
                 $sub_array[] = '<button type="button" onClick="editar('.$row["PROV_ID"].')" id="'.$row["PROV_ID"].'" class="btn btn-warning btn-icon waves-effect waves-light"><i class="ri-edit-2-line"></i></button>';
                 $sub_array[] = '<button type="button" onClick="eliminar('.$row["PROV_ID"].')" id="'.$row["PROV_ID"].'" class="btn btn-danger btn-icon waves-effect waves-light"><i class="ri-delete-bin-5-line"></i></button>';

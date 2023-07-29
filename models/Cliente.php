@@ -28,7 +28,7 @@
         
        }
        /* TODO: Registro de datos */
-       public function insert_cliente($emp_id,$cli_nom,$cli_ruc,$cli_telf,$cli_dirrec,$cli_correo){
+       public function insert_cliente($emp_id,$cli_nom,$cli_ruc,$cli_telf,$cli_direcc,$cli_correo){
         $conectar=parent::Conexion();
         $sql="SP_I_CLIENTE_01 ?,?,?,?,?,?";
         $query=$conectar->prepare($sql);
@@ -36,12 +36,13 @@
         $query->bindValue(2,$cli_nom);
         $query->bindValue(3,$cli_ruc);
         $query->bindValue(4,$cli_telf);
-        $query->bindValue(5,$cli_dirrec);
+        $query->bindValue(5,$cli_direcc);
         $query->bindValue(6,$cli_correo);
         $query->execute();
-       }
+    }
+
        /* TODO: Actualizar Datos */
-       public function update_cliente($cli_id,$cli_nom,$emp_id,$cli_ruc,$cli_telf,$cli_direcc,$cli_correo){
+       public function update_cliente($cli_id,$emp_id,$cli_nom,$cli_ruc,$cli_telf,$cli_direcc,$cli_correo){
         $conectar=parent::Conexion();
         $sql="SP_U_CLIENTE_01 ?,?,?,?,?,?,?";
         $query=$conectar->prepare($sql);
@@ -53,6 +54,6 @@
         $query->bindValue(6,$cli_direcc);
         $query->bindValue(7,$cli_correo);
         $query->execute();
-       }      
+        }
     }
 ?>

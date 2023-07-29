@@ -35,7 +35,7 @@
         $query->bindValue(1,$suc_id);
         $query->bindValue(2,$rol_nom);
         $query->execute();
-       }
+    }
        /* TODO: Actualizar Datos */
        public function update_rol($rol_id,$suc_id,$rol_nom){
         $conectar=parent::Conexion();
@@ -45,7 +45,7 @@
         $query->bindValue(2,$suc_id);
         $query->bindValue(3,$rol_nom);
         $query->execute();
-       }      
+    }      
 
        public function validar_acceso_rol($usu_id,$mend_identi){
         $conectar=parent::Conexion();

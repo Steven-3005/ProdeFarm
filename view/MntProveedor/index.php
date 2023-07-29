@@ -48,6 +48,7 @@
                                                 <th>Nombre</th>
                                                 <th>RUC</th>
                                                 <th>Telefono</th>
+                                                <th>Direccion</th>
                                                 <th>Email</th>
                                                 <th>FechaCreacion</th>
                                                 <th></th>

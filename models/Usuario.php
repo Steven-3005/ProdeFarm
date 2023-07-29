@@ -31,16 +31,16 @@
        public function insert_usuario($suc_id,$usu_correo,$usu_nom,$usu_ape,$usu_ci,$usu_telf,$usu_pass,$rol_id){
         $conectar=parent::Conexion();
         $sql="SP_I_USUARIO_01 ?,?,?,?,?,?,?,?";
-        $query=$conectar->prepare($sql);
-        $query->bindValue(1,$suc_id);
-        $query->bindValue(2,$usu_correo);
-        $query->bindValue(3,$usu_nom);
-        $query->bindValue(4,$usu_ape);
-        $query->bindValue(5,$usu_ci);
-        $query->bindValue(6,$usu_telf);
-        $query->bindValue(7,$usu_pass);
-        $query->bindValue(8,$rol_id);
-        $query->execute();
+            $query=$conectar->prepare($sql);
+            $query->bindValue(1,$suc_id);
+            $query->bindValue(2,$usu_correo);
+            $query->bindValue(3,$usu_nom);
+            $query->bindValue(4,$usu_ape);
+            $query->bindValue(5,$usu_ci);
+            $query->bindValue(6,$usu_telf);
+            $query->bindValue(7,$usu_pass);
+            $query->bindValue(8,$rol_id);
+            $query->execute();
        }
        /* TODO: Actualizar Datos */
        public function update_usuario($usu_id,$suc_id,$usu_correo,$usu_nom,$usu_ape,$usu_ci,$usu_telf,$usu_pass,$rol_id){

@@ -11,6 +11,7 @@ function guardaryeditar(e){
     e.preventDefault();
     var formData = new FormData($("#mantenimiento_form")[0]);
     formData.append('suc_id',$('#SUC_IDx').val());
+    /* TODO: Guardar Informacion */
     $.ajax({
         url:"../../controller/categoria.php?op=guardaryeditar",
         type:"POST",
@@ -21,6 +22,7 @@ function guardaryeditar(e){
             $('#table_data').DataTable().ajax.reload();
             $('#modalmantenimiento').modal('hide');
 
+            /* TODO: Mensaje de sweetalert */
             swal.fire({
                 title:'Categoria',
                 text: 'Registro Confirmado',
@@ -31,7 +33,7 @@ function guardaryeditar(e){
 }
 
 $(document).ready(function(){
-
+    /* TODO: Listar informacion en el datatable js */
     $('#table_data').DataTable({
         "aProcessing": true,
         "aServerSide": true,
@@ -86,6 +88,7 @@ function editar(cat_id){
         $('#cat_nom').val(data.CAT_NOM);
     });
     $('#lbltitulo').html('Editar Registro');
+    /* TODO: Mostrar Modal */
     $('#modalmantenimiento').modal('show');
 }
 
@@ -115,10 +118,12 @@ function eliminar(cat_id){
 }
 
 $(document).on("click","#btnnuevo",function(){
+    /* TODO: Limpiar informacion */
     $('#cat_id').val('');
     $('#cat_nom').val('');
     $('#lbltitulo').html('Nuevo Registro');
     $("#mantenimiento_form")[0].reset();
+    /* TODO: Mostrar Modal */
     $('#modalmantenimiento').modal('show');
 });
 

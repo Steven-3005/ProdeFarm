@@ -18,6 +18,7 @@ function guardaryeditar(e){
         contentType:false,
         processData:false,
         success:function(data){
+            console.log(data);
             $('#table_data').DataTable().ajax.reload();
             $('#modalmantenimiento').modal('hide');
 

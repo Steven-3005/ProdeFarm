@@ -93,7 +93,7 @@ function editar(usu_id){
         $('#usu_ci').val(data.USU_CI);
         $('#usu_telf').val(data.USU_TELF);
         $('#usu_pass').val(data.USU_PASS);
-        $('#rol_id').val(data.ROL_ID).trigger('change');;
+        $('#rol_id').val(data.ROL_ID).trigger('change');
     });
     $('#lbltitulo').html('Editar Registro');
     $('#modalmantenimiento').modal('show')

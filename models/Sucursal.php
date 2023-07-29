@@ -35,7 +35,7 @@
         $query->bindValue(1,$emp_id);
         $query->bindValue(2,$suc_nom);
         $query->execute();
-       }
+    }
        /* TODO: Actualizar Datos */
        public function update_sucursal($suc_id,$emp_id,$suc_nom){
         $conectar=parent::Conexion();
@@ -45,6 +45,6 @@
         $query->bindValue(2,$emp_id);
         $query->bindValue(3,$suc_nom);
         $query->execute();
-       }      
+    } 
     }
 ?>

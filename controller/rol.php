@@ -38,17 +38,17 @@ switch($_GET["op"]){
         break;
 
         /* TODO: MOSTRS INFORMACION DE REGISTRO */
-    case "mostrar";
-        $datos=$rol->get_rol_x_rol_id($_POST["rol_id"]);
-        if(is_array($datos)==true and count($datos)>0){
-            foreach($datos as $row){
-                $output["rol_id"] = $row["rol_id"];
-                $output["suc_id"] = $row["suc_id"];
-                $output["rol_nom"] = $row["rol_nom"];
+        case "mostrar":
+            $datos=$rol->get_rol_x_rol_id($_POST["rol_id"]);
+            if (is_array($datos)==true and count($datos)>0){
+                foreach($datos as $row){
+                    $output["ROL_ID"] = $row["ROL_ID"];
+                    $output["SUC_ID"] = $row["SUC_ID"];
+                    $output["ROL_NOM"] = $row["ROL_NOM"];
+                }
+                echo json_encode($output);
             }
-            echo json_encode($output);
-        }
-        break;
+            break;
 
         /* TODO: ELIMINAR */
     case "eliminar";
