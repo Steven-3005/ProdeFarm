@@ -38,8 +38,8 @@ switch($_GET["op"]){
         break;
 
         /* TODO: MOSTRS INFORMACION DE REGISTRO */
-        case "mostrar":
-            $datos=$rol->get_rol_x_rol_id($_POST["rol_id"]);
+    case "mostrar":
+        $datos=$rol->get_rol_x_rol_id($_POST["rol_id"]);
             if (is_array($datos)==true and count($datos)>0){
                 foreach($datos as $row){
                     $output["ROL_ID"] = $row["ROL_ID"];
@@ -56,8 +56,8 @@ switch($_GET["op"]){
         break;
 
          /* TODO: Listar Combo */
-         case "combo";
-         $datos=$rol->get_rol_x_suc_id($_POST["suc_id"]);
+    case "combo";
+        $datos=$rol->get_rol_x_suc_id($_POST["suc_id"]);
          if(is_array($datos)==true and count($datos)>0){
              $html="";
              $html.="<option selected>Seleccionar</option>";
@@ -65,7 +65,7 @@ switch($_GET["op"]){
                  $html.= "<option value='".$row["ROL_ID"]."'>".$row["ROL_NOM"]."</option>";
              }
              echo $html;
-         }
-         break;
+        }
+        break;
 }
 ?>

@@ -123,7 +123,7 @@
                                                     <label class="form-label" for="usu_pass">Contraseña</label>
                                                     <div class="position-relative auth-pass-inputgroup mb-3">
                                                         <input type="password" class="form-control pe-5" placeholder="Ingresar Contraseña" name="usu_pass" id="usu_pass">
-                                                        <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
+                                                        <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted" type="button" id="password-addon"></button>
                                                     </div>
                                                 </div>
 

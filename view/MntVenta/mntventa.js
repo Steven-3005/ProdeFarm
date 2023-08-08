@@ -17,6 +17,11 @@ $(document).ready(function(){
 
     $('#pag_id').select2();
 
+    $('#doc_id').select2();
+
+    $.post("../../controller/documento.php?op=combo",{doc_tipo:"Venta"},function(data){
+        $("#doc_id").html(data);
+    });
 
     $.post("../../controller/cliente.php?op=combo",{emp_id:emp_id},function(data){
         $("#cli_id").html(data);
@@ -194,6 +199,7 @@ function listar(vent_id){
 
 $(document).on("click","#btnguardar",function(){
     var vent_id = $("#vent_id").val();
+    var doc_id = $("#doc_id").val();
     var pag_id = $("#pag_id").val();
     var cli_id = $("#cli_id").val();
     var cli_ruc = $("#cli_ruc").val();
@@ -202,7 +208,7 @@ $(document).on("click","#btnguardar",function(){
     var vent_coment = $("#vent_coment").val();
 
 
-    if($("#pag_id").val()=='0' || $("#cli_id").val()=='0' ){
+    if($("#doc_id").val()=='0' || $("#pag_id").val()=='0' || $("#cli_id").val()=='0'){
         /* TODO:Validacion de Pago , Proveedor  */
         swal.fire({
             title:'Venta',
@@ -231,11 +237,12 @@ $(document).on("click","#btnguardar",function(){
                     cli_direcc:cli_direcc,
                     cli_correo:cli_correo,
                     vent_coment:vent_coment,
+                    doc_id:doc_id
                 },function(data){
                     console.log(data);
                     swal.fire({
                         title:'Venta',
-                        text: 'Venta registrada Correctamente con Nro: V-'+vent_id,
+                        text: 'Venta registrada Correctamente con Nro: 001-001-000'+vent_id,
                         icon: 'success',
                         footer: "<a href='../ViewVenta/?v="+vent_id+"' target='_blank'>Desea ver el Documento?</a>"
                     });

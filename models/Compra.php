@@ -50,9 +50,9 @@
             return $query->fetchAll(PDO::FETCH_ASSOC);
         }
 
-        public function update_compra($compr_id,$pag_id,$prov_id,$prov_ruc,$prov_direcc,$prov_correo,$compr_coment){
+        public function update_compra($compr_id,$pag_id,$prov_id,$prov_ruc,$prov_direcc,$prov_correo,$compr_coment,$doc_id){
             $conectar=parent::Conexion();
-            $sql="SP_U_COMPRA_03 ?,?,?,?,?,?,?";
+            $sql="SP_U_COMPRA_03 ?,?,?,?,?,?,?,?";
             $query=$conectar->prepare($sql);
             $query->bindValue(1,$compr_id);
             $query->bindValue(2,$pag_id);
@@ -61,6 +61,7 @@
             $query->bindValue(5,$prov_direcc);
             $query->bindValue(6,$prov_correo);
             $query->bindValue(7,$compr_coment);
+            $query->bindValue(8,$doc_id);
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
         }
@@ -83,7 +84,53 @@
             return $query->fetchAll(PDO::FETCH_ASSOC);
         }
 
+        /* TODO: Obtener top 5 de compras */
+        public function get_compra_top_productos($suc_id){
+            $conectar=parent::Conexion();
+            $sql="SP_L_COMPRAS_04 ?";
+            $query=$conectar->prepare($sql);
+            $query->bindValue(1,$suc_id);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }
         
+        public function get_compra_top_5($suc_id){
+            $conectar=parent::Conexion();
+            $sql="SP_L_COMPRA_05 ?";
+            $query=$conectar->prepare($sql);
+            $query->bindValue(1,$suc_id);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }
 
+        /* TODO: Obtener datos de compra y venta para actividades recientes */
+        public function get_compraventa($suc_id){
+            $conectar=parent::Conexion();
+            $sql="SP_L_COMPRAVENTA_01 ?";
+            $query=$conectar->prepare($sql);
+            $query->bindValue(1,$suc_id);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        /* TODO: Obtener consumo por categoria para Donut del dashboard */
+        public function get_consumocompra_categoria($suc_id){
+            $conectar=parent::Conexion();
+            $sql="SP_L_COMPRA_04 ?";
+            $query=$conectar->prepare($sql);
+            $query->bindValue(1,$suc_id);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        /* TODO: Obtener informacion para barra de compras del dashboard */
+        public function get_compra_barras($suc_id){
+            $conectar=parent::Conexion();
+            $sql="SP_L_COMPRA_06 ?";
+            $query=$conectar->prepare($sql);
+            $query->bindValue(1,$suc_id);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }
     }
 ?>

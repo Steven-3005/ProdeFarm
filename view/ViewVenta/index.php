@@ -1,6 +1,10 @@
 <?php
     require_once("../../config/conexion.php");
+    /*require_once("../../models/Rol.php");
+    $rol = new Rol();
+    $datos = $rol->validar_acceso_rol($_SESSION["USU_ID"],"viewventa");*/
     if(isset($_SESSION["USU_ID"])){
+        //if(is_array($datos) and count($datos)>0){
 ?>
 
 <!doctype html>
@@ -45,15 +49,15 @@
                                         <div class="card-header border-bottom-dashed p-4">
                                             <div class="d-flex">
                                                 <div class="flex-grow-1">
-                                                    <img src="../../assets/images/logo-dark.png" class="card-logo card-logo-dark" alt="logo dark" height="17">
-                                                    <img src="../../assets/images/logo-light.png" class="card-logo card-logo-light" alt="logo light" height="17">
+                                                    <img src="../../assets/images/logo-prodefarm.png" class="card-logo card-logo-dark" alt="logo dark" height="75">
+                                                    <img src="../../assets/images/logo-prodefarm.png" class="card-logo card-logo-light" alt="logo light" height="75">
                                                     <div class="mt-sm-5 mt-4">
                                                         <h6 class="text-muted text-uppercase fw-semibold">Direccion</h6>
                                                         <p class="text-muted mb-1" id="txtdirecc"></p>
                                                     </div>
                                                 </div>
                                                 <div class="flex-shrink-0 mt-sm-0 mt-3">
-                                                    <h6><span class="text-muted fw-normal">RUC: </span><span id="txtruc"></span></h6>
+                                                    <h2><span class="text-muted fw-normal">RUC: </span><span id="txtruc"></span></h2>
                                                     <h6><span class="text-muted fw-normal">Email: </span><span id="txtemail"></span></h6>
                                                     <h6><span class="text-muted fw-normal">Pagina Web: </span> <a href="https://themesbrand.com/" class="link-primary" target="_blank" id="txtweb"></a></h6>
                                                     <h6 class="mb-0"><span class="text-muted fw-normal">Telefono: </span><span id="txttelf"></span></h6>
@@ -67,16 +71,16 @@
                                         <div class="card-body p-4">
                                             <div class="row g-3">
                                                 <div class="col-lg-3 col-6">
-                                                    <p class="text-muted mb-2 text-uppercase fw-semibold">Nro de Venta</p>
-                                                    <h5 class="fs-14 mb-0">V-<span id="vent_id"></span></h5>
+                                                    <p class="text-muted mb-2 text-uppercase fw-semibold">Nro de Factura</p>
+                                                    <h5 class="fs-14 mb-0">001-001-000<span id="vent_id"></span></h5>
                                                 </div>
                                                 <!--end col-->
-                                                <div class="col-lg-3 col-6">
-                                                    <p class="text-muted mb-2 text-uppercase fw-semibold">Fecha</p>
+                                                <div class="col-lg-3 col-8">
+                                                    <p class="text-muted mb-2 text-uppercase fw-semibold">Fecha y Hora de Autorización</p>
                                                     <h5 class="fs-14 mb-0"><span id="fech_crea"></h5>
                                                 </div>
                                                 <!--end col-->
-                                                <div class="col-lg-3 col-6">
+                                                <div class="col-lg-3 col-4">
                                                     <p class="text-muted mb-2 text-uppercase fw-semibold">Pago</p>
                                                     <span class="badge badge-soft-success fs-11" id="pag_nom"></span>
                                                 </div>
@@ -96,7 +100,7 @@
                                         <div class="card-body p-4 border-top border-top-dashed">
                                             <div class="row g-3">
 
-                                                <div class="col-6">
+                                                <div class="col-8">
                                                     <h6 class="text-muted text-uppercase fw-semibold mb-3">Datos del Cliente</h6>
                                                     <p class="fw-medium mb-2" id="cli_nom"></p>
                                                     <p class="fw-medium mb-2" id="cli_ruc"></p>
@@ -130,6 +134,7 @@
                                                 <table class="table table-borderless text-center table-nowrap align-middle mb-0">
                                                     <thead>
                                                         <tr class="table-active">
+                                                            <th scope="col"></th>
                                                             <th scope="col">Categoria</th>
                                                             <th scope="col">Producto</th>
                                                             <th scope="col" style="width: 50px;">Und</th>
@@ -200,6 +205,9 @@
 
 </html>
 <?php
+        /*}else{
+            header("Location:".Conectar::ruta()."view/404/");
+        }*/
     }else{
         header("Location:".Conectar::ruta()."view/404/");
     }

@@ -38,6 +38,21 @@
             $data=Array();
             foreach($datos as $row){
                 $sub_array = array();
+                if ($row["PROD_IMG"] != ''){
+                    $sub_array[] =
+                    "<div class='d-flex align-items-center'>" .
+                        "<div class='flex-shrink-0 me-2'>".
+                            "<img src='../../assets/producto/".$row["PROD_IMG"]."' alt='' class='avatar-xs rounded-circle'>".
+                        "</div>".
+                    "</div>";
+                }else{
+                    $sub_array[] =
+                    "<div class='d-flex align-items-center'>" .
+                        "<div class='flex-shrink-0 me-2'>".
+                            "<img src='../../assets/producto/no_imagen.png' alt='' class='avatar-xs rounded-circle'>".
+                        "</div>".
+                    "</div>";
+                }
                 $sub_array[] = $row["CAT_NOM"];
                 $sub_array[] = $row["PROD_NOM"];
                 $sub_array[] = $row["UND_NOM"];
@@ -59,18 +74,43 @@
         case "listardetalleformato";
             $datos=$venta->get_venta_detalle($_POST["vent_id"]);
             foreach($datos as $row){
-                ?>
-                     <tr>
-                        <th><?php echo $row["CAT_NOM"];?></th>
-                        <td><?php echo $row["PROD_NOM"];?></td>
-                        <td scope="row"><?php echo $row["UND_NOM"];?></td>
-                        <td><?php echo $row["PROD_PVENTA"];?></td>
-                        <td><?php echo $row["DETV_CANT"];?></td>
-                        <td class="text-end"><?php echo $row["DETV_TOTAL"];?></td>
-                    </tr>
-                <?php
+            ?>
+                 <tr>
+                    <td>
+                        <?php 
+                            if ($row["PROD_IMG"] != ''){
+                                ?>
+                                    <?php
+                                        echo "<div class='d-flex align-items-center'>" .
+                                                "<div class='flex-shrink-0 me-2'>".
+                                                    "<img src='../../assets/producto/".$row["PROD_IMG"]."' alt='' class='avatar-xs rounded-circle'>".
+                                                "</div>".
+                                            "</div>";
+                                    ?>
+                                <?php
+                            }else{
+                                ?>
+                                    <?php 
+                                        echo "<div class='d-flex align-items-center'>" .
+                                                "<div class='flex-shrink-0 me-2'>".
+                                                    "<img src='../../assets/producto/no_imagen.png' alt='' class='avatar-xs rounded-circle'>".
+                                                "</div>".
+                                            "</div>";
+                                    ?>
+                                <?php
+                            }
+                        ?>
+                    </td>
+                    <td><?php echo $row["CAT_NOM"];?></td>
+                    <td><?php echo $row["PROD_NOM"];?></td>
+                    <td scope="row"><?php echo $row["UND_NOM"];?></td>
+                    <td><?php echo $row["PROD_PVENTA"];?></td>
+                    <td><?php echo $row["DETV_CANT"];?></td>
+                    <td class="text-end"><?php echo $row["DETV_TOTAL"];?></td>
+                </tr>
+            <?php
             }
-            break;
+         break;
 
         case "guardar":
             $datos=$venta->update_venta(
@@ -81,6 +121,7 @@
                 $_POST["cli_direcc"],
                 $_POST["cli_correo"],
                 $_POST["vent_coment"],
+                $_POST["doc_id"]
             );
             break;
 
@@ -122,7 +163,8 @@
             $data=Array();
             foreach($datos as $row){
                 $sub_array = array();
-                $sub_array[] = "V-".$row["VENT_ID"];
+                $sub_array[] = "001-001-000".$row["VENT_ID"];
+                $sub_array[] = $row["DOC_NOM"];
                 $sub_array[] = $row["CLI_RUC"];
                 $sub_array[] = $row["CLI_NOM"];
                 $sub_array[] = $row["PAG_NOM"];
@@ -142,6 +184,86 @@
                 "aaData"=>$data);
             echo json_encode($results);
             break;
+            
+        case "listartopproducto";
+            $datos=$venta->get_venta_top_productos($_POST["suc_id"]);
+            foreach($datos as $row){
+                ?>
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="avatar-sm bg-light rounded p-1 me-2">
+                                <?php
+                                    if ($row["PROD_IMG"] != ''){
+                                        ?>
+                                            <?php
+                                                echo "<img src='../../assets/producto/".$row["PROD_IMG"]."' alt='' class='img-fluid d-block' />";
+                                            ?>
+                                        <?php
+                                    }else{
+                                        ?>
+                                            <?php 
+                                                echo "<img src='../../assets/producto/no_imagen.png' alt='' class='img-fluid d-block' />";
+                                            ?>
+                                        <?php
+                                    }
+                                ?>
+                                </div>
+                                <div>
+                                    <h5 class="fs-14 my-1"><?php echo $row["PROD_NOM"];?></h5>
+                                    <span class="text-muted"><?php echo $row["CAT_NOM"];?></span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <h5 class="fs-14 my-1 fw-normal"><?php echo $row["PROD_PVENTA"];?></h5>
+                            <span class="text-muted">P.Venta</span>
+                        </td>
+                        <td>
+                            <h5 class="fs-14 my-1 fw-normal"><?php echo $row["CANT"];?></h5>
+                            <span class="text-muted">Cant</span>
+                        </td>
+                        <td>
+                            <h5 class="fs-14 my-1 fw-normal"><?php echo $row["PROD_STOCK"];?></h5>
+                            <span class="text-muted">Stock</span>
+                        </td>
+                    </tr>
+                <?php
+            }
+            break;
 
+        /* TODO:Informacion para barra de venta del Dashboard */
+        case "barras":
+            $datos=$venta->get_venta_barras($_POST["suc_id"]);
+            $data = array();
+            foreach($datos as $row){
+                $data[]=$row;
+            }
+            echo json_encode($data);
+            break;
+
+        case "top5":
+            $datos=$venta->get_venta_top_5($_POST["suc_id"]);
+            foreach($datos as $row){
+                ?>
+                    <tr>
+                        <td>
+                        001-001-000<?php echo $row["VENT_ID"];?>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="flex-grow-1"><?php echo $row["USU_NOM"];?> <?php echo $row["USU_APE"];?></div>
+                            </div>
+                        </td>
+                        <td><?php echo $row["DOC_NOM"];?></td>
+                        <td><?php echo $row["CLI_NOM"];?></td>
+                        <td><?php echo $row["VENT_SUBTOTAL"];?></td>
+                        <td><?php echo $row["VENT_IVA"];?></td>
+                        <td><?php echo $row["VENT_TOTAL"];?></td>
+                    </tr>
+                <?php
+            }
+            break;
+    
     }
 ?>

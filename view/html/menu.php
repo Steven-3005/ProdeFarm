@@ -10,19 +10,19 @@
 
         <a href="index.html" class="logo logo-dark">
             <span class="logo-sm">
-                <img src="../../assets/images/logo-prodefarm.png" alt="" height="22">
+                <img src="../../assets/images/logo-prodefarm.png" alt="" height="20">
             </span>
             <span class="logo-lg">
-                <img src="../../assets/images/logo-prodefarm.png" alt="" height="17">
+                <img src="../../assets/images/logo-prodefarm.png" alt="" height="60">
             </span>
         </a>
 
         <a href="index.html" class="logo logo-light">
             <span class="logo-sm">
-                <img src="../../assets/images/logo-prodefarm.png" alt="" height="22">
+                <img src="../../assets/images/logo-prodefarm.png" alt="" height="20">
             </span>
             <span class="logo-lg">
-                <img src="../../assets/images/logo-prodefarm.png" alt="" height="17">
+                <img src="../../assets/images/logo-prodefarm.png" alt="" height="60">
             </span>
         </a>
 
@@ -47,7 +47,7 @@
                             ?>
                                 <li class="nav-item">
                                     <a class="nav-link menu-link" href="<?php echo $row["MEN_RUTA"];?>">
-                                        <i class="ri-honour-line"></i> <span data-key="t-widgets"><?php echo $row["MEN_NOM"];?></span>
+                                        <i class="ri-line-chart-fill"></i> <span data-key="t-widgets"><?php echo $row["MEN_NOM"];?></span>
                                     </a>
                                 </li>
                             <?php

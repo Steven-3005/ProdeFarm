@@ -38,6 +38,21 @@
             $data=Array();
             foreach($datos as $row){
                 $sub_array = array();
+                if ($row["PROD_IMG"] != ''){
+                    $sub_array[] =
+                    "<div class='d-flex align-items-center'>" .
+                        "<div class='flex-shrink-0 me-2'>".
+                            "<img src='../../assets/producto/".$row["PROD_IMG"]."' alt='' class='avatar-xs rounded-circle'>".
+                        "</div>".
+                    "</div>";
+                }else{
+                    $sub_array[] =
+                    "<div class='d-flex align-items-center'>" .
+                        "<div class='flex-shrink-0 me-2'>".
+                            "<img src='../../assets/producto/no_imagen.png' alt='' class='avatar-xs rounded-circle'>".
+                        "</div>".
+                    "</div>";
+                }
                 $sub_array[] = $row["CAT_NOM"];
                 $sub_array[] = $row["PROD_NOM"];
                 $sub_array[] = $row["UND_NOM"];
@@ -59,16 +74,41 @@
         case "listardetalleformato";
             $datos=$compra->get_compra_detalle($_POST["compr_id"]);
             foreach($datos as $row){
-                ?>
-                     <tr>
-                        <th><?php echo $row["CAT_NOM"];?></th>
-                        <td><?php echo $row["PROD_NOM"];?></td>
-                        <td scope="row"><?php echo $row["UND_NOM"];?></td>
-                        <td><?php echo $row["PROD_PCOMPRA"];?></td>
-                        <td><?php echo $row["DETC_CANT"];?></td>
-                        <td class="text-end"><?php echo $row["DETC_TOTAL"];?></td>
-                    </tr>
-                <?php
+            ?>
+                 <tr>
+                    <td>
+                        <?php 
+                            if ($row["PROD_IMG"] != ''){
+                                ?>
+                                    <?php
+                                        echo "<div class='d-flex align-items-center'>" .
+                                                "<div class='flex-shrink-0 me-2'>".
+                                                    "<img src='../../assets/producto/".$row["PROD_IMG"]."' alt='' class='avatar-xs rounded-circle'>".
+                                                "</div>".
+                                            "</div>";
+                                    ?>
+                                <?php
+                            }else{
+                                ?>
+                                    <?php 
+                                        echo "<div class='d-flex align-items-center'>" .
+                                                "<div class='flex-shrink-0 me-2'>".
+                                                    "<img src='../../assets/producto/no_imagen.png' alt='' class='avatar-xs rounded-circle'>".
+                                                "</div>".
+                                            "</div>";
+                                    ?>
+                                <?php
+                            }
+                        ?>
+                    </td>
+                    <td><?php echo $row["CAT_NOM"];?></td>
+                    <td><?php echo $row["PROD_NOM"];?></td>
+                    <td scope="row"><?php echo $row["UND_NOM"];?></td>
+                    <td><?php echo $row["PROD_PCOMPRA"];?></td>
+                    <td><?php echo $row["DETC_CANT"];?></td>
+                    <td class="text-end"><?php echo $row["DETC_TOTAL"];?></td>
+                </tr>
+            <?php
             }
             break;
 
@@ -80,7 +120,8 @@
                 $_POST["prov_ruc"],
                 $_POST["prov_direcc"],
                 $_POST["prov_correo"],
-                $_POST["compr_coment"]
+                $_POST["compr_coment"],
+                $_POST["doc_id"]
             );
             break;
 
@@ -123,6 +164,7 @@
             foreach($datos as $row){
                 $sub_array = array();
                 $sub_array[] = "C-".$row["COMPR_ID"];
+                $sub_array[] = $row["DOC_NOM"];
                 $sub_array[] = $row["PROV_RUC"];
                 $sub_array[] = $row["PROV_NOM"];
                 $sub_array[] = $row["PAG_NOM"];
@@ -143,5 +185,126 @@
             echo json_encode($results);
             break;
 
+         /* TODO: Listar 5 productos con sus datos mas comprados */
+        case "listartopproducto";
+            $datos=$compra->get_compra_top_productos($_POST["suc_id"]);
+            foreach($datos as $row){
+                 ?>
+                     <tr>
+                         <td>
+                             <div class="d-flex align-items-center">
+                             <div class="avatar-sm bg-light rounded p-1 me-2">
+                             <?php
+                                 if ($row["PROD_IMG"] != ''){
+                                     ?>
+                                         <?php
+                                             echo "<img src='../../assets/producto/".$row["PROD_IMG"]."' alt='' class='img-fluid d-block' />";
+                                         ?>
+                                     <?php
+                                 }else{
+                                     ?>
+                                         <?php 
+                                             echo "<img src='../../assets/producto/no_imagen.png' alt='' class='img-fluid d-block' />";
+                                         ?>
+                                     <?php
+                                 }
+                             ?>
+                             </div>
+                             <div>
+                                 <h5 class="fs-14 my-1"><?php echo $row["PROD_NOM"];?></h5>
+                                 <span class="text-muted"><?php echo $row["CAT_NOM"];?></span>
+                             </div>
+                         </div>
+                     </td>
+                     <td>
+                         <h5 class="fs-14 my-1 fw-normal"><?php echo $row["PROD_PCOMPRA"];?></h5>
+                         <span class="text-muted">P.Compra</span>
+                     </td>
+                     <td>
+                         <h5 class="fs-14 my-1 fw-normal"><?php echo $row["CANT"];?></h5>
+                         <span class="text-muted">Cant</span>
+                     </td>
+                     <td>
+                         <h5 class="fs-14 my-1 fw-normal"><?php echo $row["PROD_STOCK"];?></h5>
+                         <span class="text-muted">Stock</span>
+                     </td>
+                 </tr>
+             <?php
+         }
+         break;           
+    
+        case "top5":
+            $datos=$compra->get_compra_top_5($_POST["suc_id"]);
+            foreach($datos as $row){
+                ?>
+                    <tr>
+                        <td>
+                            C-<?php echo $row["COMPR_ID"];?>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="flex-grow-1"><?php echo $row["USU_NOM"];?> <?php echo $row["USU_APE"];?></div>
+                            </div>
+                        </td>
+                        <td><?php echo $row["DOC_NOM"];?></td>
+                        <td><?php echo $row["PROV_NOM"];?></td>
+                        <td><?php echo $row["COMPR_SUBTOTAL"];?></td>
+                        <td><?php echo $row["COMPR_IVA"];?></td>
+                        <td><?php echo $row["COMPR_TOTAL"];?></td>
+                    </tr>
+                <?php
+            }
+            break;
+        /* TODO: Listado de actividades recientes para dashboard */
+        case "compraventa":
+            $datos=$compra->get_compraventa($_POST["suc_id"]);
+            foreach($datos as $row){
+                ?>
+                    <div class="acitivity-item py-3 d-flex">
+                        <div class="flex-shrink-0 avatar-xs acitivity-avatar">
+                            <?php
+                                if ($row["REGISTRO"] == 'Compra'){
+                                    ?>
+                                        <div class="avatar-title bg-soft-success text-success rounded-circle">
+                                            <i class="ri-shopping-cart-2-line"></i>
+                                        </div>
+                                    <?php
+                                }else{
+                                    ?>
+                                        <div class="avatar-title bg-soft-danger text-danger rounded-circle">
+                                            <i class="ri-stack-fill"></i>
+                                        </div>
+                                    <?php
+                                }
+                            ?>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <h6 class="mb-1 lh-base"><?php echo $row["REGISTRO"];?> - <?php echo $row["DOC_NOM"];?></h6>
+                            <p class="text-muted mb-1"><?php echo $row["PROV_NOM"];?> </p>
+                            <small class="mb-0 text-muted"><?php echo $row["FECH_CREA"];?></small>
+                        </div>
+                    </div>
+                <?php
+            }
+            break;
+
+        /* TODO: consumo de compras por categoria para Donut del dashboard */
+        case "dountcompra":
+            $datos=$compra->get_consumocompra_categoria($_POST["suc_id"]);
+            $data = array();
+            foreach($datos as $row){
+                $data[]=$row;
+            }
+            echo json_encode($data);
+            break;
+            
+        case "barras":
+            $datos=$compra->get_compra_barras($_POST["suc_id"]);
+            $data = array();
+            foreach($datos as $row){
+                $data[]=$row;
+            }
+            echo json_encode($data);
+            break;
     }
 ?>

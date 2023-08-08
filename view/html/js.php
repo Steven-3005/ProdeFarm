@@ -4,14 +4,14 @@
     </button>
     <!--end back-to-top-->
 
-    <div class="customizer-setting d-none d-md-block">
+   <!-- <div class="customizer-setting d-none d-md-block">
         <div class="btn-info btn-rounded shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
             <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
         </div>
-    </div>
+    </div>-->
 
     <!-- Theme Settings -->
-    <div class="offcanvas offcanvas-end border-0" tabindex="-1" id="theme-settings-offcanvas">
+    <!--<div class="offcanvas offcanvas-end border-0" tabindex="-1" id="theme-settings-offcanvas">
         <div class="d-flex align-items-center bg-primary bg-gradient p-3 offcanvas-header">
             <h5 class="m-0 me-2 text-white">Personalizar Tema</h5>
 
@@ -97,7 +97,7 @@
                             <h5 class="fs-13 text-center mt-2">Dos columnas</h5>
                         </div>
                         <!-- end col -->
-                    </div>
+                    <!--</div>
 
                     <h6 class="mt-4 mb-0 fw-semibold text-uppercase">Esquema de colores</h6>
                     <p class="text-muted">Elija el tema claro u oscuro</p>
@@ -493,7 +493,7 @@
                         </div>
                         <!-- end row -->
 
-                        <div class="collapse" id="collapseBgGradient">
+                        <!--<div class="collapse" id="collapseBgGradient">
                             <div class="d-flex gap-2 flex-wrap img-switch p-2 px-3 bg-light rounded">
 
                                 <div class="form-check sidebar-setting card-radio">
@@ -577,7 +577,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 
 <!-- JAVASCRIPT -->
 <script src="../../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>

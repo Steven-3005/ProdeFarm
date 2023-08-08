@@ -102,5 +102,15 @@
                 return $new_name;
             }
         }
+
+        /* TODO: Consumo de productos */
+        public function get_producto_consumo($prod_id){
+            $conectar=parent::Conexion();
+            $sql="SP_L_PRODUCTO_04 ?";
+            $query=$conectar->prepare($sql);
+            $query->bindValue(1,$prod_id);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }
     }
 ?>

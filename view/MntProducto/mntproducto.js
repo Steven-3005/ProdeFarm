@@ -98,6 +98,7 @@ function editar(prod_id){
         $('#prod_pcompra').val(data.PROD_PCOMPRA);
         $('#prod_pventa').val(data.PROD_PVENTA);
         $('#prod_stock').val(data.PROD_STOCK);
+        $('#prod_fechaven').val(data.PROD_FECHAVEN);
         $('#cat_id').val(data.CAT_ID).trigger('change');
         $('#und_id').val(data.UND_ID).trigger('change');
         $('#pre_imagen').html(data.PROD_IMG);
@@ -131,6 +132,55 @@ function eliminar(prod_id){
     });
 }
 
+function ver(prod_id){
+    $('#consumo_data').DataTable({
+        "aProcessing": true,
+        "aServerSide": true,
+        dom: 'Bfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+        ],
+        "ajax":{
+            url:"../../controller/producto.php?op=consumo",
+            type:"post",
+            data:{prod_id:prod_id}
+        },
+        "bDestroy": true,
+        "responsive": true,
+        "bInfo":true,
+        "iDisplayLength": 10,
+        "order": [[ 0, "desc" ]],
+        "language": {
+            "sProcessing":     "Procesando...",
+            "sLengthMenu":     "Mostrar _MENU_ registros",
+            "sZeroRecords":    "No se encontraron resultados",
+            "sEmptyTable":     "Ningún dato disponible en esta tabla",
+            "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+            "sInfoPostFix":    "",
+            "sSearch":         "Buscar:",
+            "sUrl":            "",
+            "sInfoThousands":  ",",
+            "sLoadingRecords": "Cargando...",
+            "oPaginate": {
+                "sFirst":    "Primero",
+                "sLast":     "Último",
+                "sNext":     "Siguiente",
+                "sPrevious": "Anterior"
+            },
+            "oAria": {
+                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+            }
+        },
+    });
+
+    $('#modalconsumo').modal('show');
+}
+
 $(document).on("click","#btnnuevo",function(){
     $('#prod_id').val('');
     $('#prod_nom').val('');
@@ -138,6 +188,7 @@ $(document).on("click","#btnnuevo",function(){
     $('#prod_pcompra').val('');
     $('#prod_pventa').val('');
     $('#prod_stock').val('');
+    $('#prod_fechaven').val('');
     $('#cat_id').val('').trigger('change');
     $('#und_id').val('').trigger('change');
     $('#lbltitulo').html('Nuevo Registro');

@@ -13,7 +13,7 @@ $(document).ready(function(){
         $('#fech_crea').html(data.FECH_CREA);
         $('#pag_nom').html(data.PAG_NOM);
         $('#txttotal').html(data.VENT_TOTAL);
-
+        
         $('#vent_subtotal').html(data.VENT_SUBTOTAL);
         $('#vent_iva').html(data.VENT_IVA);
         $('#vent_total').html(data.VENT_TOTAL);

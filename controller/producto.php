@@ -44,6 +44,22 @@
             $data=Array();
             foreach($datos as $row){
                 $sub_array = array();
+
+                if ($row["PROD_IMG"] != ''){
+                    $sub_array[] =
+                    "<div class='d-flex align-items-center'>" .
+                        "<div class='flex-shrink-0 me-2'>".
+                            "<img src='../../assets/producto/".$row["PROD_IMG"]."' alt='' class='avatar-xs rounded-circle'>".
+                        "</div>".
+                    "</div>";
+                }else{
+                    $sub_array[] =
+                    "<div class='d-flex align-items-center'>" .
+                        "<div class='flex-shrink-0 me-2'>".
+                            "<img src='../../assets/producto/no_imagen.png' alt='' class='avatar-xs rounded-circle'>".
+                        "</div>".
+                    "</div>";
+                }
                 $sub_array[] = $row["CAT_NOM"];
                 $sub_array[] = $row["PROD_NOM"];
                 $sub_array[] = $row["UND_NOM"];
@@ -53,7 +69,7 @@
                 $sub_array[] = $row["FECH_CREA"];
                 $sub_array[] = '<button type="button" onClick="editar('.$row["PROD_ID"].')" id="'.$row["PROD_ID"].'" class="btn btn-warning btn-icon waves-effect waves-light"><i class="ri-edit-2-line"></i></button>';
                 $sub_array[] = '<button type="button" onClick="eliminar('.$row["PROD_ID"].')" id="'.$row["PROD_ID"].'" class="btn btn-danger btn-icon waves-effect waves-light"><i class="ri-delete-bin-5-line"></i></button>';
-                $sub_array[] = '<button type="button" onClick="ver('.$row["PROD_ID"].')" id="'.$row["PROD_ID"].'" class="btn btn-success btn-icon waves-effect waves-light"><i class="ri-settings-2-line"></i></button>';
+                $sub_array[] = '<button type="button" onClick="ver('.$row["PROD_ID"].')" id="'.$row["PROD_ID"].'" class="btn btn-success btn-icon waves-effect waves-light"><i class="ri-todo-line"></i></button>';
                 $data[] = $sub_array;
             }
 
@@ -106,6 +122,30 @@
                 echo $html;
             }
             break;
+                
+        case "consumo":
+            $datos=$producto->get_producto_consumo($_POST["prod_id"]);
+            $data=Array();
+            foreach($datos as $row){
+                $sub_array = array();
+                if ($row["REGISTRO"] == 'Compra'){
+                    $sub_array[] = "<div class='flex-shrink-0 avatar-xs acitivity-avatar'><div class='avatar-title bg-soft-success text-success rounded-circle'><i class='ri-shopping-cart-2-line'></i></div></div>";
+                }else{
+                    $sub_array[] = "<div class='flex-shrink-0 avatar-xs acitivity-avatar'><div class='avatar-title bg-soft-danger text-danger rounded-circle'><i class='ri-stack-fill'></i></div></div>";
+                }
+                $sub_array[] = $row["REGISTRO"];
+                $sub_array[] = $row["DOC_NOM"];
+                $sub_array[] = $row["FECH_CREA"];
+                $sub_array[] = $row["DETC_CANT"];
+                $data[] = $sub_array;
+            }
 
+            $results = array(
+                "sEcho"=>1,
+                "iTotalRecords"=>count($data),
+                "iTotalDisplayRecords"=>count($data),
+                "aaData"=>$data);
+            echo json_encode($results);
+            break;
     }
 ?>

@@ -49,5 +49,15 @@
             $query->bindValue(3,$cat_nom);
             $query->execute();
         }
+
+        /* TODO: Obtener el total de stock por categoria */
+        public function get_categoria_total_stock($suc_id){
+            $conectar=parent::Conexion();
+            $sql="SP_L_CATEGORIA_03 ?";
+            $query=$conectar->prepare($sql);
+            $query->bindValue(1,$suc_id);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }
     }
 ?>
